@@ -6,25 +6,3 @@
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
 }
-
-.form {
-  width: 300px;
-}
-
-.formRow {
-  display: flex;
-  width: 100%;
-  height: 40px;
-  padding: 5px;
-}
-
-.formRow label {
-  display: block;
-  width: 50%;
-  margin: 0 5px 0 0;
-}
-
-.input {
-  display: block;
-  width: 50%;
-}
