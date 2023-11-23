@@ -1,5 +1,4 @@
-import React from "react";
-import { Form } from "informed";
+import { Form, useFormState } from "informed";
 
 import FormContent from "./FormContent";
 import classes from "./calculatorForm.module.css";
@@ -18,6 +17,9 @@ const INITIAL_VALUES = {
   aBonus: 139.99,
 };
 const CalculatorForm = () => {
+  const formState: any = useFormState();
+
+  console.log("formState in cccc", formState);
   return (
     <Form
       initialValues={INITIAL_VALUES}

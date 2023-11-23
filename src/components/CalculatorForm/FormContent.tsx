@@ -1,21 +1,20 @@
-import { useState, useRef } from "react";
-import { Form, Input, useFormApi, useFormState, useFieldState } from "informed";
+import { useState, useRef, useEffect, useContext } from "react";
+import {
+  Form,
+  Input,
+  useFormApi,
+  useFormState,
+  useFieldState,
+  FormState,
+} from "informed";
+
+import {
+  AppContext,
+  AppContextType,
+  FormValuesInterface,
+} from "../../context/AppContextProvider";
 
 import classes from "./formContent.module.css";
-
-type FormValues = {
-  wraw: number;
-  fraw: number;
-  hraw: number;
-  araw: number;
-  gold: number;
-  workTax: number;
-  salary: number;
-  wBonus: number;
-  fBonus: number;
-  hBonus: number;
-  aBonus: number;
-};
 
 const INPUTS_FIELDS = [
   { name: "wraw", label: "wraw", type: "number" },
@@ -40,9 +39,13 @@ const RAW_PRODUCTION = {
 };
 
 const FormContent = () => {
-  const formState = useFormState();
+  const formState: any = useFormState();
 
-  const { values } = formState;
+  const { formValues, setFormValues } = useContext(
+    AppContext
+  ) as AppContextType;
+
+  console.log("formValues", formValues);
 
   const {
     wraw,
@@ -56,7 +59,7 @@ const FormContent = () => {
     fBonus,
     hBonus,
     aBonus,
-  }: any = values;
+  } = formState.values;
 
   const factoryPrices = {
     rawq1: 1500,
@@ -72,20 +75,6 @@ const FormContent = () => {
     factoryq6: (10 + 20 + 70 + 170 + 370 + 770) * gold,
     factoryq7: (10 + 20 + 70 + 170 + 370 + 770 + 1220) * gold,
   };
-
-  console.log(
-    wraw,
-    fraw,
-    hraw,
-    araw,
-    gold,
-    workTax,
-    salary,
-    wBonus,
-    fBonus,
-    hBonus,
-    aBonus
-  );
 
   const prices = {
     wraw: 25,
