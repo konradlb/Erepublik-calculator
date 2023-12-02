@@ -1,17 +1,7 @@
 import React, { useState, useContext } from "react";
 
 export interface FormValuesInterface {
-  wraw: number;
-  fraw: number;
-  hraw: number;
-  araw: number;
-  gold: number;
-  workTax: number;
-  salary: number;
-  wBonus: number;
-  fBonus: number;
-  hBonus: number;
-  aBonus: number;
+  [key: string]: number;
 }
 
 export type AppContextType = {
